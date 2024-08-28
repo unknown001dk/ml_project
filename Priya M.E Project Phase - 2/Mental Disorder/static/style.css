@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,400&display=swap');
+
+:root{
+  --primary: #1f2e88 ;
+  --secondary: #2f66d4 ;
+  --hover: #a2d9f5;
+  --black: #333;
+  --white: #fff;
+  --light-color: #666;
+  --light-bg: #eee;
+  --border:.2rem solid rgba(0,0,0,0.1);
+  --box-shadow:0 .5rem 1rem rgba(0,0,0,0.1);
+}
+
+*{
+  font-family: 'Poppins', sans-serif;
+  margin:0;
+  padding: 0;
+  box-sizing:border-box;
+  text-decoration: none;
+  text-transform: capitalize;
+  outline: none;
+  border: none;
+  transition: 0.2s linear;
+}
+
+html{
+  font-size: 62.2%;
+  overflow-x: hidden;
+  scroll-padding-top: 9rem;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+  width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+  background: var(--primary);
+  border-radius: 5rem;
+}
+
+/* global classes */
+
+section{
+  padding: 5rem 7%;
+  margin-top: 5%;
+}
+
+.heading{
+  font-size: 4rem;
+  text-align: center;
+  color: var(--black);
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-bottom: 3rem;
+}
+
+.btn{
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  border-radius: .5rem;
+  background: var(--primary);
+  font-size: 1.7rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.btn:hover{
+  background: var(--secondary);
+}
+
+/* header */
+.header{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top:0;
+  left: 0;
+  right: 0;
+  padding: 2rem 9%;
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+  z-index: 1000;
+}
+
+.header .logo{
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: var(--black);
+}
+
+.header .logo i{
+  color: var(--primary);
+  padding-right: .5rem;
+}
+
+.header .navbar a{
+  font-size: 1.7rem;
+  color: var(--black);
+  margin: 0 1rem;
+}
+
+.header .navbar a:hover{
+  color: var(--primary);
+}
+
+.header .btn{
+  margin-top: 0;
+}
+
+/* home */
+.home{
+    min-height: 100vh;
+    display: flex;
+    /* align-items: center; */
+    /* background: url(https://cdn.pixabay.com/photo/2019/05/27/07/26/mental-health-4232031_1280.jpg) no-repeat; */
+    background: rgba(0, 0, 0, 0.5) url(images/background.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size: 1.8em;
+    color: #eee;
+    margin-top: 90px;
+  }
+  
+  .home .content{
+    max-width: 60rem;
+    padding-top: 10rem;
+    padding-left: 6rem; /*rtl*/
+  }
+  
+  .home .content h3{
+    font-size: 6rem;
+    color: var(--black);
+    line-height: 1.2;
+  }
+  
+  .home .content p{
+    line-height: 2;
+    font-size: 1.5rem;
+    color: var(--light-color);
+    padding: 1rem 0;
+  }
+  
+  /* end home */
+  
+  /* about us */
+  
+  .about .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .about .row .image{
+    flex: 1 1 40rem;
+  }
+  
+  .about .row .image img{
+    width: 80%;
+    height: 100%;
+    border-radius: 5rem;
+  }
+  
+  .about .row .content{
+    flex: 1 1 40rem;
+  }
+  
+  .about .row .content h3{
+    color: var(--black);
+    font-size: 3.5rem;
+    line-height: 1.5;
+  }
+  
+  .about .row .content p{
+    font-size: 1.4rem;
+    color: var(--light-color);
+    padding: 1rem 0;
+    line-height: 2;
+  }
+  /* end about */
+
+  /* Style the prediction section */
+  .prediction {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+  
+  /* Style the prediction heading */
+  .prediction h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  #predictionPage {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  /* Style the prediction form */
+  #predictionPage form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Style the file input */
+  #predictionPage input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Style the submit button */
+  #predictionPage input[type="submit"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Style the predicted class paragraph */
+  #predictionPage p {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .dialog-box {
+    position: fixed;
+    top: 20%;
+    left: 15%;
+    width: 65%;
+    height: 30%;
+    background-color: #00000029;
+    z-index: 10;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 2em;
+  }
+  
+  .dialog-box-icon {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 10px;
+  }
+  
+  .dialog-box-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #ccc;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .radio-group {
+    display: flex;
+    /* gap: 10px; */
+    margin-bottom: 10px;
+    margin-left: 100px;
+}
+
+  .radio-group input {
+      margin-right: 5px;
+  }
+
+/* footer */
+.footer{
+    text-align: center;
+  }
+  
+  .footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    gap: 2rem;
+  }
+  
+  .footer .box-container .box h3{
+    font-size: 2.2rem;
+    padding: 1rem 0;
+    color: var(--secondary);
+  }
+  
+  .footer .box-container .box p{
+    font-size: 1.5rem;
+    line-height: 2;
+    color: var(--light-color);
+    padding: .5rem 0;
+  }
+  
+  .footer .box-container .box .share{
+    margin-top: 1rem;
+  }
+  
+  .footer .box-container .box .share a{
+    height: 4.5rem;
+    width: 4.5rem;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 10%;
+    line-height: 4.5rem;
+    font-size: 1.7rem;
+    margin-right: .3rem;
+    text-align: center;
+  }
+  
+  .footer .box-container .box .share a:hover{
+    background: var(--secondary);
+  }
+  
+  .footer .box-container .box .link{
+    display: block;
+    font-size: 1.7rem;
+    line-height: 2;
+    color: var(--primary);
+    padding: .5rem 0;
+  }
+  
+  .footer .box-container .box .link:hover{
+    color: var(--hover);
+  }
+  
+  .footer .credit{
+    margin-top: 3rem;
+    padding-top: 3rem;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: capitalize;
+    color: var(--primary);
+    border-top: .1rem solid var(--secondary);
+  }
+  
+  .footer .credit i{
+    color: var(--hover);
+  }
+  
+  .footer .credit span{
+    color: var(--secondary);
+  }
+  
+  /* end footer */
+
+  .noDisorder{
+    margin-top: 20%;
+    font-size: large;
+  }

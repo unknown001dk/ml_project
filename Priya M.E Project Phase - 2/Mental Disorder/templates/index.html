@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="icon" href="static/images/ribbon.png" type="image/ico">
+</head>
+
+<header class="header">
+
+    <!--   start logo -->
+    <a href="#" class="logo">
+        <i class="fa-regular fa-face-angry"></i>
+        Mental Health Prediction
+    </a>
+
+    <!--   start navbar -->
+    <nav class="navbar">
+      <a href="#home">home</a>
+      <a href="#about">about</a>
+      <a href="#prediction">prediction</a>
+    </nav>
+    <!--   end navbar -->
+    <a href="#prediction" class="btn">Make Prediction</a>
+    <div id="menu-btn" class="fas fa-bars"></div>
+  
+  </header>
+
+<body>
+    <section id="home" class="home">
+        <div id="welcomePage">
+            <h1>Welcome to Mental Health Detection</h1> <br>
+            <p>
+                Mental Health Detection project employs AI algorithms to identify and classify various disorders, <br> 
+                including MDD, ASD, loneliness, bipolar, anxiety, PTSD, sleeping disorders, psychotic depression, <br> 
+                eating disorders, ADHD, PDD, and OCD, enhancing early intervention and support.
+            </p>
+        </div>
+      
+    </section>
+
+    <section id="about" class="about">
+
+        <h1 class="heading"> about us </h1>
+      
+        <!--   content -->
+        <div class="row">
+      
+          <!--     image -->
+          <div class="image">
+            <img src="/static/images/loneliness.avif" alt="loneliness img">
+          </div>
+      
+          <!--     info -->
+          <div class="content">
+            <h3>Loneliness</h3>
+            <p>Loneliness, a pervasive emotional state, can profoundly impact mental well-being. Isolation and a lack of meaningful connections contribute to this distressing disorder, potentially leading to heightened stress, anxiety, and even depression. The consequences of chronic loneliness extend beyond emotional discomfort, affecting physical health as well. </p>
+            <p>Research suggests links to cardiovascular issues and weakened immune function. Recognizing loneliness as a serious health concern underscores the importance of fostering social bonds and community connections. </p>
+            <p>By addressing this disorder proactively, individuals can cultivate a supportive network, promoting emotional resilience and overall mental health, fostering a sense of belonging and mitigating the detrimental effects of loneliness.</p>
+            <a href="https://www.verywellmind.com/loneliness-causes-effects-and-treatments-2795749#:~:text=Loneliness%20is%20a%20state%20of,Things%20To%20Do%20By%20Yourself" class="btn">read more</a>
+          </div> <br> <br>
+
+
+      
+          <!--     info -->
+          <div class="content">
+            <h3>Anxiety</h3>
+            <p>Anxiety, a prevalent mental health disorder, manifests as excessive worry, fear, and apprehension, significantly impacting daily life. From racing thoughts to physical symptoms like restlessness and palpitations, anxiety creates a pervasive sense of unease.</p>
+            <p>Left unaddressed, it can lead to debilitating consequences, affecting relationships, work, and overall well-being. Fortunately, various therapeutic interventions and coping strategies, including mindfulness and cognitive-behavioral techniques, exist to manage anxiety effectively.</p>
+            <p>Seeking professional support, such as therapy or medication, can provide valuable tools for individuals navigating the challenges of anxiety, fostering a path towards resilience, improved mental health, and a more fulfilling life.</p>
+            <a href="https://www.medicalnewstoday.com/articles/323454" class="btn">read more</a>
+          </div> 
+                    <!--     image -->
+                    <div class="image">
+                        <img src="/static/images/Anxiety.avif" alt="Anxiety Img">
+                      </div>
+          <br> <br>
+
+           <!--     image -->
+           <div class="image">
+            <img src="/static/images/introvert.jpg" alt="introvert Img">
+          </div>
+      
+          <!--     info -->
+          <div class="content">
+            <h3>Introvert</h3>
+            <p>
+                Introversion, often misunderstood, is a personality trait rather than a disorder. Introverts thrive on solitude, valuing deep connections over social stimulation. While they may appear reserved, introverts possess rich inner worlds, excelling in focused tasks and meaningful relationships.</p>
+            <p>Society's emphasis on extroversion can lead to misconceptions and a sense of alienation for introverts. Embracing and understanding introversion as a unique and valuable aspect of human diversity is crucial. </p>
+            <p> Creating environments that honor and appreciate introverted qualities allows individuals to thrive authentically, contributing their distinct strengths to the broader tapestry of human experience and fostering a more inclusive and empathetic society.</p>
+            <a href="https://www.healthline.com/health/what-is-an-introvert" class="btn">read more</a>
+          </div>
+      
+        </div>
+      
+      </section>
+
+      <section id="prediction" class="prediction">
+        <h1 class="heading"> Prediction</h1> <br> <br>
+        <div>
+            <form action="/predict" method="post">
+                <label> Do you experience sweating? </label>
+                <div class="radio-group" >
+                  <input type="radio" name="{{ selected_features[0] }}" value="yes" id="{{ selected_features[0] }}-yes">
+                  <label for="{{ selected_features[0] }}-yes">Yes</label>
+                  <input type="radio" name="{{ selected_features[0] }}" value="no" id="{{ selected_features[0] }}-no">
+                  <label for="{{ selected_features[0] }}-no">No</label><br>
+                </div>
+                
+                <label>Are you facing trouble in concentration?</label>
+                <div class="radio-group"> 
+                  <input type="radio" name="{{ selected_features[1] }}" value="yes" id="{{ selected_features[1] }}-yes">
+                  <label for="{{ selected_features[1] }}-yes">Yes</label>
+                  <input type="radio" name="{{ selected_features[1] }}" value="no" id="{{ selected_features[1] }}-no">
+                  <label for="{{ selected_features[1] }}-no">No</label><br>
+                </div>
+
+                <label> Do you have trouble sleeping? </label>
+                <div class="radio-group" >
+                  <input type="radio" name="{{ selected_features[2] }}" value="yes" id="{{ selected_features[2] }}-yes">
+                  <label for="{{ selected_features[2] }}-yes">Yes</label>
+                  <input type="radio" name="{{ selected_features[2] }}" value="no" id="{{ selected_features[2] }}-no">
+                  <label for="{{ selected_features[2] }}-no">No</label><br>
+                </div>
+
+                <label>Do you have a close friend you can confide in?</label>
+                <div class="radio-group">
+                  <input type="radio" name="{{ selected_features[3] }}" value="yes" id="{{ selected_features[3] }}-yes">
+                  <label for="{{ selected_features[3] }}-yes">Yes</label>
+                  <input type="radio" name="{{ selected_features[3] }}" value="no" id="{{ selected_features[3] }}-no">
+                  <label for="{{ selected_features[3] }}-no">No</label><br>
+                </div>
+                
+                <label> Would you consider yourself an introvert? </label>
+                <div class="radio-group"> 
+                  <input type="radio" name="{{ selected_features[4] }}" value="yes" id="{{ selected_features[4] }}-yes">
+                  <label for="{{ selected_features[4] }}-yes">Yes</label>
+                  <input type="radio" name="{{ selected_features[4] }}" value="no" id="{{ selected_features[4] }}-no">
+                  <label for="{{ selected_features[4] }}-no">No</label><br>
+                </div>
+                  
+                <label> Are stressful memories popping up frequently? </label>
+                <div class="radio-group"> 
+                  <input type="radio" name="{{ selected_features[5] }}" value="yes" id="{{ selected_features[5] }}-yes">
+                  <label for="{{ selected_features[5] }}-yes">Yes</label>
+                  <input type="radio" name="{{ selected_features[5] }}" value="no" id="{{ selected_features[5] }}-no">
+                  <label for="{{ selected_features[5] }}-no">No</label><br>
+                </div>
+                  
+                <label> Do you tend to avoid people or social activities? </label>
+                <div class="radio-group"> 
+                  <input type="radio" name="{{ selected_features[6] }}" value="yes" id="{{ selected_features[6] }}-yes">
+                  <label for="{{ selected_features[6] }}-yes">Yes</label>
+                  <input type="radio" name="{{ selected_features[6] }}" value="no" id="{{ selected_features[6] }}-no">
+                  <label for="{{ selected_features[6] }}-no">No</label><br>
+                </div>
+                  
+                <label> Are you frequently feeling negative? </label>
+                <div class="radio-group"> 
+                  <input type="radio" name="{{ selected_features[7] }}" value="yes" id="{{ selected_features[7] }}-yes">
+                  <label for="{{ selected_features[7] }}-yes">Yes</label>
+                  <input type="radio" name="{{ selected_features[7] }}" value="no" id="{{ selected_features[7] }}-no">
+                  <label for="{{ selected_features[7] }}-no">No</label><br>
+                </div>
+                
+                <label> Do you find yourself blaming yourself often? </label>
+                <div class="radio-group"> 
+                  <input type="radio" name="{{ selected_features[8] }}" value="yes" id="{{ selected_features[8] }}-yes">
+                  <label for="{{ selected_features[8] }}-yes">Yes</label>
+                  <input type="radio" name="{{ selected_features[8] }}" value="no" id="{{ selected_features[8] }}-no">
+                  <label for="{{ selected_features[8] }}-no">No</label><br>
+                </div>
+                
+                <label> Have you noticed an increase in energy levels? </label>
+                <div class="radio-group"> 
+                  <input type="radio" name="{{ selected_features[9] }}" value="yes" id="{{ selected_features[9] }}-yes">
+                  <label for="{{ selected_features[9] }}-yes">Yes</label>
+                  <input type="radio" name="{{ selected_features[9] }}" value="no" id="{{ selected_features[9] }}-no">
+                  <label for="{{ selected_features[9] }}-no">No</label><br>
+                </div>
+                  
+                  <button type="submit">Predict</button>
+                </form>
+              </div>
+    </section>
+
+    <!-- footer -->
+
+<section class="footer">
+  
+  <div class="box-container">
+      
+    <!--     start column -->
+    <div class="box">
+      
+      <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+          <a href="#" class="fab fa-twitter"></a>
+          <a href="#" class="fab fa-linkedin"></a>
+          <a href="#" class="fab fa-instagram"></a>
+        </div>
+        
+      </div>
+  <!--     end column -->
+    
+    <div class="credit">
+        made with <i class="fas fa-heart"></i> by <span>Mental Health Disorder </span> | all rights reserved &copy;2023
+      </div>
+    
+  </section>
+  
+  <!-- end footer -->
+</body>
+</html>
